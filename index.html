@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Guía del estudiante CPLG</title>
+<meta name="description" content="Guía del estudiante de la Certificación Profesional en Gamificación del Aprendizaje · Magio Academy">
+<style>:root{color-scheme:light}body{margin:0;font-family:system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Public+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<style>
+/* Papel claro para leer; azul profundo y amarillo sólo donde empieza el juego */
+:root{
+  --bg:#f6f4fb; --surface:#fff; --line:#e3dff4; --fg:#15133f; --mut:#5f5a8f;
+  --ink:#0d0d16; --panel:#1b1947; --panel-line:#312d6b; --on-dark:#edebff; --on-dark-mut:#a9a4d6;
+  --yel:#ffd21f; --pur:#6a4cff; --lil:#efecff;
+  --dsp:'Archivo',system-ui,sans-serif; --body:'Public Sans',system-ui,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:860px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3,.dsp{font-family:var(--dsp);text-wrap:balance;margin:0}
+h2{font-size:clamp(26px,4.4vw,38px);font-weight:800;letter-spacing:-.02em;line-height:1.08}
+h3{font-size:19px;font-weight:700;letter-spacing:-.01em}
+p{margin:0 0 14px}
+section{padding-block:clamp(44px,7vw,72px)}
+section+section{border-top:1px solid var(--line)}
+.lead{font-size:18px;color:var(--mut);margin-top:10px}
+.small{font-size:14.5px;color:var(--mut)}
+.eyebrow{font-family:var(--dsp);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--yel)}
+.num{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;background:var(--fg);color:var(--yel);font-family:var(--dsp);font-weight:800;font-size:15px;flex:none}
+.htitle{display:flex;gap:14px;align-items:center;margin-bottom:18px}
+/* puente entre secciones */
+.next{display:flex;gap:12px;align-items:center;margin-top:30px;padding-top:18px;border-top:1px dashed var(--line);font-family:var(--dsp);font-weight:600;color:var(--pur);font-size:15.5px;text-decoration:none}
+.next:hover{color:var(--fg)}
+.next:hover::before{background:var(--yel);color:#17120b}
+.next::before{content:"↓";display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--lil);color:var(--pur);flex:none;font-size:14px}
+
+/* progreso + nav */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:rgba(246,244,251,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:4px;overflow-x:auto;padding-block:10px;scrollbar-width:none;align-items:center}
+nav .wrap::-webkit-scrollbar{display:none}
+nav a{flex:none;font-family:var(--dsp);font-size:13px;font-weight:600;color:var(--mut);text-decoration:none;padding:6px 11px;border-radius:999px;white-space:nowrap}
+nav a.on{background:var(--fg);color:var(--yel)}
+#bar{position:absolute;left:0;bottom:-2px;height:4px;width:100%;pointer-events:none}
+#bar i{display:block;height:100%;width:0;background:var(--yel);border-radius:0 4px 4px 0;transition:width .18s linear}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--ink);z-index:39}
+
+/* portada */
+header{position:relative;overflow:hidden;background:var(--ink);color:#fff}
+header img{position:relative;display:block;width:100%;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 14%);mask-image:linear-gradient(to bottom,transparent 0,#000 14%)}
+.htxt{position:relative;padding-top:clamp(44px,8vw,76px);padding-bottom:clamp(30px,7vw,64px)}
+h1{font-size:clamp(44px,10vw,86px);font-weight:800;letter-spacing:-.035em;line-height:.95}
+h1 em{font-style:normal;color:var(--yel)}
+.course{font-family:var(--dsp);font-weight:700;font-size:clamp(20px,3.2vw,27px);color:#fff;margin:14px 0 6px;letter-spacing:-.01em}
+.sub{font-size:clamp(17px,2.4vw,21px);color:#d9d5ff;max-width:28ch;margin-top:16px}
+.byline{position:relative;display:flex;flex-wrap:wrap;gap:10px 28px;align-items:center;justify-content:space-between;padding-block:16px;border-top:1px solid #2a2660;font-size:13px;color:#a9a4d6}
+.byline b{color:#fff;font-family:var(--dsp)}
+
+/* piezas */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:14px}
+.yel{background:var(--yel);color:#17120b;border-color:transparent}
+.yel h3{color:#17120b}.yel .small{color:#473913}
+.chip{display:inline-block;font-family:var(--dsp);font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:var(--pur);color:#fff;margin-bottom:10px}
+.yel .chip{background:#17120b;color:var(--yel)}
+.pend{background:#fff3bf;border:1px dashed #d4a800;border-radius:7px;padding:1px 7px;color:#6b5000;font-size:14px;white-space:nowrap}
+.tip{display:flex;gap:14px;align-items:flex-start;background:#fff6cf;border:1px solid #f0dc8a;border-radius:14px;padding:16px 18px;margin-top:18px}
+.tip .ic{flex:none;width:30px;height:30px;border-radius:9px;background:var(--yel);display:flex;align-items:center;justify-content:center;font-family:var(--dsp);font-weight:800;color:#17120b}
+.tip b{font-family:var(--dsp)}
+.tip ul{margin:8px 0 0;padding-left:18px;font-size:15px}
+.tip li{margin-bottom:3px}
+
+/* bienvenida */
+.hola{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:clamp(22px,3.4vw,34px);box-shadow:0 14px 40px rgba(21,19,63,.07)}
+.hola .top{display:flex;gap:20px;align-items:center;margin-bottom:18px;flex-wrap:wrap}
+.hola .top img{width:96px;height:96px;border-radius:50%;object-fit:cover;border:3px solid var(--yel);flex:none}
+.hola h2{font-size:clamp(23px,3.6vw,31px)}
+.hola .rol{font-size:13.5px;color:var(--mut);margin-top:4px}
+.hola p{font-size:16.5px}
+.cta{display:inline-flex;align-items:center;gap:9px;font-family:var(--dsp);font-weight:700;font-size:16px;background:var(--yel);color:#17120b;border:0;border-radius:12px;padding:13px 22px;cursor:pointer;text-decoration:none}
+.cta:hover{background:#ffdb4d}
+
+/* Valeria */
+.quote{display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;background:var(--lil);border-left:5px solid var(--pur);border-radius:16px;padding:24px}
+.quote img{width:112px;border-radius:12px;flex:none}
+.quote .t{flex:1;min-width:250px}
+.quote q{display:block;quotes:none;font-size:16.5px;color:var(--fg)}
+.quote q b{font-family:var(--dsp)}
+.quote .who{margin-top:14px;font-size:13.5px;color:#4a4580}
+.quote .who b{color:var(--fg)}
+
+/* para ir pensando */
+.opts{display:grid;gap:10px;margin-top:14px}
+.opt{text-align:left;font:inherit;font-size:15.5px;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:14px 16px;cursor:pointer;display:flex;gap:12px;align-items:flex-start;transition:border-color .15s,background .15s,transform .1s}
+.opt:hover{border-color:var(--pur)}
+.opt:active{transform:scale(.995)}
+.opt .k{font-family:var(--dsp);font-weight:800;color:var(--pur);flex:none}
+.opt[aria-pressed="true"]{background:var(--lil);border-color:var(--pur)}
+.fb{margin-top:14px;background:var(--fg);color:#edebff;border-radius:14px;padding:18px 20px}
+.fb .tag{font-family:var(--dsp);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--yel);display:block;margin-bottom:6px}
+.fb .after{color:#a9a4d6;font-size:14.5px;margin:10px 0 0}
+
+/* ruta */
+.step{display:flex;gap:18px;align-items:flex-start;border-radius:16px;padding:20px 22px;margin-bottom:12px;border:1px solid var(--line);background:var(--surface)}
+.step svg{flex:none;width:44px;height:44px}
+.step.a{background:#fff6cf;border-color:#f0dc8a}
+.step.b{background:var(--lil);border-color:#d8d2f7}
+.step.d{background:var(--ink);border-color:transparent;color:var(--on-dark)}
+.step.d h3{color:#fff}.step.d .when{color:var(--yel)}
+.when{font-family:var(--dsp);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--pur);margin-bottom:5px}
+.step.a .when{color:#8a6c00}
+.step p{margin:6px 0 0;font-size:15.5px}
+.claim{font-family:var(--dsp);font-weight:700;font-size:clamp(18px,2.6vw,22px);color:var(--fg);background:var(--lil);border-left:5px solid var(--pur);border-radius:14px;padding:18px 22px;margin-top:22px}
+.claim span{color:var(--pur)}
+
+/* evaluación */
+.score{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.score .b{border-radius:16px;padding:20px 22px;text-align:center}
+.score .n{font-family:var(--dsp);font-size:54px;font-weight:800;line-height:1;letter-spacing:-.03em}
+
+/* niveles */
+.lvls{display:grid;gap:12px}
+.arrow{display:none}
+@media(min-width:760px){.lvls{grid-template-columns:1fr auto 1fr auto 1fr;align-items:stretch}
+.arrow{display:flex;align-items:center;color:var(--pur);font-size:22px;font-family:var(--dsp)}}
+.lvl{background:var(--panel);border:1px solid var(--panel-line);border-radius:16px;overflow:hidden;cursor:pointer;text-align:left;font:inherit;color:var(--on-dark);padding:0;display:flex;flex-direction:column;transition:border-color .15s}
+.lvl:hover{border-color:var(--pur)}
+.lvl[aria-expanded="true"]{border-color:var(--yel)}
+.lvl .pic{background:#141235;padding:14px 16px 0}
+.lvl .pic svg{display:block;width:100%;height:74px}
+.lvl .b{padding:14px 18px 18px}
+.lvl .t{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+.lvl .t .n{font-family:var(--dsp);font-weight:800;color:var(--yel);font-size:19px}
+.lvl h3{color:#fff}
+.lvl .d{font-size:14.5px;color:#c9c4ee}
+.lvl .more{font-size:14.5px;color:#fff;margin-top:10px;border-top:1px solid var(--panel-line);padding-top:10px}
+.lvl .hint{font-size:12.5px;color:var(--yel);margin-top:10px;font-family:var(--dsp);font-weight:600}
+
+/* carta que se voltea */
+.flip{background:none;border:0;padding:0;cursor:pointer;perspective:900px;width:100%}
+.flip .in{position:relative;transition:transform .5s cubic-bezier(.4,0,.2,1);transform-style:preserve-3d;min-height:196px}
+.flip[aria-pressed="true"] .in{transform:rotateY(180deg)}
+.flip .f,.flip .bk{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;padding:20px;display:flex;flex-direction:column;justify-content:center;text-align:left}
+.flip .f{background:var(--yel);color:#17120b;align-items:center;flex-direction:row;gap:16px}
+.flip .bk{background:var(--panel);color:var(--on-dark);transform:rotateY(180deg);border:1px solid var(--panel-line)}
+.flip .bk b{font-family:var(--dsp);color:var(--yel);display:block;margin-bottom:6px}
+.flip .tap{font-family:var(--dsp);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-top:8px;color:#5c4a0d}
+
+/* respuestas de Valeria */
+.fbline{margin-top:16px;background:var(--lil);border-left:4px solid var(--pur);border-radius:12px;padding:14px 18px;color:var(--pur);font-family:var(--dsp);font-weight:600;font-size:15.5px}
+.gold{display:flex;gap:18px;align-items:center}
+.gold svg{width:54px;flex:none}
+.seal{display:flex;gap:13px;align-items:flex-start}
+.seal img{width:54px;flex:none}
+.seal b{font-family:var(--dsp);display:block;font-size:15.5px}
+.seal em{font-style:italic;display:block;font-size:15px;margin:2px 0 2px}
+.seal span{font-size:14px;color:var(--mut)}
+
+/* flujo IA */
+.flow{display:flex;gap:8px;flex-wrap:wrap;align-items:stretch}
+.flow .f{flex:1;min-width:116px;border-radius:12px;padding:13px 14px;text-align:center}
+.flow .f b{font-family:var(--dsp);display:block;font-size:14.5px}
+.f1{background:var(--yel);color:#17120b}.f2{background:var(--pur);color:#fff}.f3{background:var(--fg);color:var(--yel)}
+
+/* tabla */
+table{width:100%;border-collapse:collapse;font-size:15px;background:var(--surface)}
+td,th{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+th{font-family:var(--dsp);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--fg)}
+td:first-child{font-family:var(--dsp);font-weight:600;white-space:nowrap}
+.tw{overflow-x:auto;border-radius:12px;border:1px solid var(--line)}
+
+/* misión */
+.mission{background:var(--panel);border-radius:18px;padding:24px}
+.prog{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.prog .track{flex:1;height:9px;border-radius:99px;background:#2b2764;overflow:hidden}
+.prog .track i{display:block;height:100%;width:0;background:var(--yel);border-radius:99px;transition:width .3s cubic-bezier(.4,0,.2,1)}
+.prog .cnt{font-family:var(--dsp);font-weight:700;font-size:14px;color:var(--yel);white-space:nowrap}
+.task{display:flex;gap:13px;align-items:flex-start;padding:12px 0;border-top:1px solid var(--panel-line);cursor:pointer}
+.task:first-of-type{border-top:0}
+.task input{appearance:none;width:22px;height:22px;flex:none;margin:1px 0 0;border:2px solid var(--yel);border-radius:7px;cursor:pointer;position:relative;background:transparent}
+.task input:checked{background:var(--yel)}
+.task input:checked::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;border:solid #17120b;border-width:0 2.5px 2.5px 0;transform:rotate(42deg)}
+.task span{font-size:15.5px;color:var(--on-dark)}
+.task input:checked+span{color:var(--on-dark-mut);text-decoration:line-through}
+.done{margin-top:16px;padding-top:14px;border-top:1px solid var(--panel-line);color:var(--yel);font-family:var(--dsp);font-weight:700}
+.outro{margin-top:38px;background:var(--panel);border-radius:20px;padding:clamp(26px,4vw,40px);position:relative;overflow:hidden}
+.outro::before{content:"";position:absolute;inset:0 0 auto;height:6px;background:var(--yel)}
+.outro .lbl{font-family:var(--dsp);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--yel);margin-bottom:14px}
+.outro p{font-family:var(--dsp);font-weight:700;font-size:clamp(18px,2.8vw,24px);line-height:1.32;color:#fff;margin:0 0 14px}
+.outro span{color:var(--yel)}
+.outro .sign{margin-top:18px;padding-top:16px;border-top:1px solid var(--panel-line);font-family:var(--dsp);font-weight:600;font-size:16px;color:var(--on-dark-mut)}
+footer{background:var(--fg);color:#b9b4e4;font-size:13.5px}
+footer .wrap{padding-block:30px;display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
+:focus-visible{outline:2px solid var(--pur);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+html{scroll-behavior:smooth}
+section{scroll-margin-top:76px}
+</style>
+
+<header>
+  <div class="wrap htxt">
+    <div class="eyebrow">Magio Academy · Certificación profesional</div>
+    <p class="course">Gamificación del Aprendizaje</p>
+    <h1>Guía del<br><em>estudiante</em></h1>
+    <p class="sub">Tu experiencia cuenta. Tu primer reto empieza aquí.</p>
+  </div>
+  <img src="img/hero.jpg" alt="Un equipo de diseño de aprendizaje trabajando sobre una mesa con tarjetas y una ruta dibujada">
+  <div class="wrap"><div class="byline"><span>Noviembre de 2026</span><span>Facilitadora: <b>Doris Delgado</b></span></div></div>
+</header>
+
+<nav>
+  <div class="wrap">
+    <a href="#bienvenida" class="on">Bienvenida</a>
+    <a href="#valeria">Valeria</a>
+    <a href="#ayuda">Cómo la ayudamos</a>
+    <a href="#ruta">Tu ruta</a>
+    <a href="#niveles">Niveles</a>
+    <a href="#evaluacion">Evaluación</a>
+    <a href="#aula">Tu aula</a>
+    <a href="#mision">Tu misión</a>
+  </div>
+  <div id="bar"><i></i></div>
+</nav>
+
+<main><div class="wrap">
+
+<section id="bienvenida">
+  <div class="hola">
+    <div class="top">
+      <img src="img/doris.jpg" alt="Doris Delgado">
+      <div><h2>¡Hola! Qué gusto tenerte aquí</h2><div class="rol">Doris Delgado · Tu facilitadora</div></div>
+    </div>
+    <p>Soy Doris y voy a acompañarte estas tres semanas.</p>
+    <p>Quizá es tu primera vez con gamificación, o quizá ya probaste algunas ideas. Vengas de donde vengas, lo que traes suma: por eso vamos a aprender entre todos.</p>
+    <p>Aquí puedes preguntar, probar y equivocarte sin que pase nada. <b>No necesitas llegar con las respuestas</b>, las vamos a construir haciendo. Y si algo no se entiende, me escribes.</p>
+    <p style="margin-bottom:18px">¿List@? Te presento a Valeria.</p>
+    <a class="cta" href="#valeria">Conocer a Valeria →</a>
+  </div>
+</section>
+
+<section id="valeria">
+  <div class="htitle"><span class="num">1</span><h2>Conoce a Valeria</h2></div>
+  <div class="quote">
+    <img src="img/valeria.jpg" alt="Valeria Campos, la clienta del caso">
+    <div class="t">
+      <q>“Hola. Soy <b>Valeria Campos</b>, gerente de Talento en Distribuidora Kunturi. Somos mil doscientas personas y más de la mitad trabaja en tiendas y almacenes.<br><br>Cada año todos deben completar <b>Integridad Kunturi</b>, nuestro curso de ética y cumplimiento. Este año solo el <b>41 %</b> lo terminó a tiempo. El resto lo hizo a las apuradas la última semana, con el jefe encima. Y ahora auditoría me pide evidencia de que la gente entiende, no solo de que hizo clic.<br><br>Yo ya sé lo que quiero: <b>puntos, un ranking por área y un premio</b>. El presupuesto es bajo y en tienda solo hay celular. ¿Me ayudan?”</q>
+      <div class="who">Valeria, la empresa y sus datos son parte de un caso ficticio creado para este curso. El sábado 7 la conocerás en video y empezarás a trabajar con su encargo.</div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:30px">Para ir pensando: ¿qué le preguntarías antes de aceptar?</h3>
+  <p class="small" style="margin-top:6px">Esto no se califica ni hay respuesta correcta. Es solo para que llegues el sábado con una idea tuya.</p>
+  <div class="opts">
+    <button class="opt" type="button" aria-pressed="false" data-fb="Mueves la conversación del entregable al desempeño. Esa pregunta es la que después sostiene todo el diseño: sin ella, se gamifica un contenido en vez de una capacidad."><span class="k">A</span><span>¿Qué quieres que tu gente sepa hacer distinto después del curso?</span></button>
+    <button class="opt" type="button" aria-pressed="false" data-fb="Vas al problema antes que a la solución. Atenta a lo que puede aparecer: quizá la causa no esté en el curso, sino en el tiempo, el equipo o el jefe."><span class="k">B</span><span>¿Por qué crees que el 41 % no lo termina a tiempo?</span></button>
+    <button class="opt" type="button" aria-pressed="false" data-fb="Buscas el sistema que rodea al curso: incentivos, jefaturas, consecuencias. A veces ahí está la palanca real, y no en el diseño."><span class="k">C</span><span>¿Qué pasa hoy si alguien no lo termina?</span></button>
+    <button class="opt" type="button" aria-pressed="false" data-fb="Es información necesaria, pero si partes por las restricciones antes de entender el problema, el diseño se achica solo. Primero el para qué, después el cuánto."><span class="k">D</span><span>¿Para cuándo lo necesitas y con qué presupuesto?</span></button>
+  </div>
+  <div class="fb" id="fb" hidden><span class="tag">Lo que esa pregunta abre</span><span id="fbt"></span><p class="after">Guárdate tu respuesta. El sábado escucharás las de tus compañeros y ahí empieza el trabajo.</p></div>
+
+  <a class="next" href="#ayuda">Valeria ya hizo su pedido. Ahora, ¿cómo la ayudamos?</a>
+</section>
+
+<section id="ayuda">
+  <div class="htitle"><span class="num">2</span><h2>Cómo vamos a ayudar a Valeria</h2></div>
+  <p>Trabajas en dos planos a la vez, y el criterio que usas es el mismo en los dos.</p>
+  <div class="grid2" style="margin-top:16px">
+    <div class="card yel"><span class="chip">En equipo · en vivo</span><h3>El estudio</h3><p class="small" style="margin:8px 0 0">Fundas un estudio de diseño con tus compañeros y juntos atienden el encargo de Valeria. Le presentan propuestas, ella responde y ustedes ajustan. <b>No se califica.</b></p></div>
+    <div class="card"><span class="chip">Por tu cuenta</span><h3>Tu proyecto</h3><p class="small" style="margin:8px 0 0">Aplicas lo aprendido a un curso o programa tuyo, o al caso alternativo del aula. Lo entregas y lo sustentas. <b>Es lo único que se califica.</b></p></div>
+  </div>
+  <div class="card" style="margin-top:14px;display:flex;gap:22px;align-items:center;flex-wrap:wrap">
+    <img src="img/team.jpg" alt="Los cinco participantes trabajando" style="width:min(100%,300px);border-radius:12px">
+    <div style="flex:1;min-width:220px"><h3>Tu estudio</h3><p class="small" style="margin:8px 0 0">Serán dos estudios: uno de dos personas y otro de tres. Con quién trabajas se define el sábado 7.</p></div>
+  </div>
+  <a class="next" href="#ruta">¿Y cuándo pasa cada cosa? Esta es tu ruta.</a>
+</section>
+
+<section id="ruta">
+  <div class="htitle"><span class="num">3</span><h2>Tu ruta</h2></div>
+  <p class="lead" style="margin:-8px 0 22px">Un ritmo sencillo que se repite cada semana.</p>
+
+  <div class="step a">
+    <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="4" y="9" width="32" height="21" rx="2.5" fill="#fff" stroke="#17120b" stroke-width="2.2"/><rect x="2" y="31" width="36" height="3.4" rx="1.7" fill="#17120b"/><path d="M20 13 l9 4.2 l-9 4.2 l-9 -4.2z" fill="#ffd21f" stroke="#17120b" stroke-width="1.6" stroke-linejoin="round"/></svg>
+    <div><div class="when">Sábados 7 y 14 · 9:00 a 13:00</div><h3>En las sesiones</h3><p>Resolvemos retos en equipo, comparten los avances de sus proyectos y trabajamos en ellos para resolver dudas.</p></div>
+  </div>
+  <div class="step b">
+    <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M4 9 h13 a3 3 0 0 1 3 3 v19 a3 3 0 0 0 -3 -3 H4z" fill="#fff" stroke="#15133f" stroke-width="2.2" stroke-linejoin="round"/><path d="M36 9 H23 a3 3 0 0 0 -3 3 v19 a3 3 0 0 1 3 -3 h13z" fill="#fff" stroke="#15133f" stroke-width="2.2" stroke-linejoin="round"/><path d="M25 9 h5 v9 l-2.5 -2 l-2.5 2z" fill="#6a4cff"/></svg>
+    <div><div class="when">Hasta el martes siguiente · 10 y 17</div><h3>Entre sesiones</h3><p>Completas la lectura, la autoevaluación y el avance de tu proyecto que indica el aula.</p></div>
+  </div>
+  <div class="step">
+    <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M5 8 h20 a2.5 2.5 0 0 1 2.5 2.5 v8 a2.5 2.5 0 0 1 -2.5 2.5 H14 l-6 5 v-5 H5a2.5 2.5 0 0 1 -2.5 -2.5 v-8A2.5 2.5 0 0 1 5 8z" fill="#6a4cff"/><path d="M22 20 h12 a2.5 2.5 0 0 1 2.5 2.5 v6 a2.5 2.5 0 0 1 -2.5 2.5 h-3 v4 l-5 -4 h-4a2.5 2.5 0 0 1 -2.5 -2.5 v-6A2.5 2.5 0 0 1 22 20z" fill="#ffd21f" stroke="#15133f" stroke-width="1.6"/></svg>
+    <div><div class="when">Hasta el jueves · 12 y 19</div><h3>Con acompañamiento</h3><p>Recibes retroalimentación y revisión para mejorar tu propuesta. En la semana 2 también pruebas el prototipo de otro participante.</p></div>
+  </div>
+  <div class="step d">
+    <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M9 4 h14 l9 9 v23 a2 2 0 0 1 -2 2 H9a2 2 0 0 1 -2 -2 V6a2 2 0 0 1 2 -2z" fill="#1b1947" stroke="#edebff" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 18 h11 M12 23 h8" stroke="#edebff" stroke-width="2.2" stroke-linecap="round"/><circle cx="28" cy="29" r="7.5" fill="#ffd21f"/><path d="M24.4 29 l2.6 2.6 l4.8 -5" stroke="#17120b" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div><div class="when">Sábado 21 · martes 24 · viernes 27</div><h3>Evaluación final individual</h3><p>El sábado 21 sustentas tu proyecto en 15 minutos, con preguntas incluidas. Hasta el martes 24 entregas la versión ajustada. El viernes 27 recibes tu resultado.</p></div>
+  </div>
+
+  <div class="claim">Aquí <span>aprendes haciendo</span>: pruebas primero, después le ponemos nombre a lo que hiciste y lo vuelves a intentar con criterios nuevos.</div>
+
+  <div class="tip">
+    <div class="ic">!</div>
+    <div><b>Para aprovechar al máximo cada sesión</b>
+      <ul>
+        <li>Conéctate cinco minutos antes.</li>
+        <li>Ten a la mano el caso de tu proyecto.</li>
+        <li>Prende la cámara si puedes: se trabaja en equipo.</li>
+        <li>Anota las decisiones que tomas, no solo los conceptos.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 style="margin-top:34px">Primero tu criterio; después, la IA</h3>
+  <div class="flow" style="margin-top:12px">
+    <div class="f f1"><b>1 · Tu intento</b></div>
+    <div class="f f2"><b>2 · La IA propone</b></div>
+    <div class="f f3"><b>3 · Tú decides</b></div>
+  </div>
+  <p style="margin-top:14px">Si usas IA, hazlo después de tu propio intento. En la entrega, indica para qué la usaste y qué ajustaste de su propuesta.</p>
+  <p class="small">Hora de Lima. Cada sesión empieza con 15 minutos de tolerancia y tiene una pausa de 15. Enlace de los talleres: <span class="pend">pendiente</span>. Un <b>prototipo</b> es la primera versión de tu propuesta, lo bastante armada para que otra persona la recorra.</p>
+
+  <a class="next" href="#niveles">Mientras tú avanzas, tu estudio también sube de nivel.</a>
+</section>
+
+<section id="niveles">
+  <div class="htitle"><span class="num">4</span><h2>Haz avanzar a tu estudio</h2></div>
+  <p class="lead" style="margin:-8px 0 22px">Cada propuesta que le presentan a Valeria los acerca a ser su socio. Sin puntos individuales, sin ranking entre equipos y sin penalizaciones.</p>
+
+  <div class="lvls">
+    <button class="lvl" type="button" aria-expanded="false">
+      <div class="pic"><svg viewBox="0 0 120 74" aria-hidden="true"><rect x="4" y="50" width="36" height="24" rx="3" fill="#ffd21f"/><rect x="42" y="36" width="36" height="38" rx="3" fill="#2a2660"/><rect x="80" y="22" width="36" height="52" rx="3" fill="#2a2660"/><circle cx="22" cy="40" r="6" fill="#fff"/></svg></div>
+      <div class="b"><div class="t"><span class="n">1</span><h3>A prueba</h3></div><span class="chip">Al formar tu estudio</span>
+      <div class="d">Reciben el encargo de Valeria y empiezan a trabajar.</div>
+      <div class="more" hidden>Desbloqueas la <b>consultoría exprés</b>: una consulta breve conmigo en cada reto. La tienen todos los estudios, en todos los niveles.</div>
+      <div class="hint">Ver qué desbloquea →</div></div>
+    </button>
+    <div class="arrow" aria-hidden="true">→</div>
+    <button class="lvl" type="button" aria-expanded="false">
+      <div class="pic"><svg viewBox="0 0 120 74" aria-hidden="true"><rect x="4" y="50" width="36" height="24" rx="3" fill="#2a2660"/><rect x="42" y="36" width="36" height="38" rx="3" fill="#ffd21f"/><rect x="80" y="22" width="36" height="52" rx="3" fill="#2a2660"/><circle cx="60" cy="26" r="6" fill="#fff"/></svg></div>
+      <div class="b"><div class="t"><span class="n">2</span><h3>De confianza</h3></div><span class="chip">Con dos propuestas aprobadas</span>
+      <div class="d">Valeria ya confía en el criterio del estudio.</div>
+      <div class="more" hidden>Eligen el <b>orden en que presentan</b> y pueden proponer un ajuste a una carta de restricción.</div>
+      <div class="hint">Ver qué desbloquea →</div></div>
+    </button>
+    <div class="arrow" aria-hidden="true">→</div>
+    <button class="lvl" type="button" aria-expanded="false">
+      <div class="pic"><svg viewBox="0 0 120 74" aria-hidden="true"><rect x="4" y="50" width="36" height="24" rx="3" fill="#2a2660"/><rect x="42" y="36" width="36" height="38" rx="3" fill="#2a2660"/><rect x="80" y="22" width="36" height="52" rx="3" fill="#ffd21f"/><rect x="96" y="2" width="2.6" height="20" fill="#fff"/><path d="M98.6 2 h14 l-3.4 5 l3.4 5 h-14z" fill="#ffd21f"/><circle cx="92" cy="12" r="6" fill="#fff"/></svg></div>
+      <div class="b"><div class="t"><span class="n">3</span><h3>Socio</h3></div><span class="chip">Con cuatro propuestas aprobadas</span>
+      <div class="d">El estudio deja de ser proveedor y pasa a ser socio.</div>
+      <div class="more" hidden><b>Negocian directamente con Valeria</b> y ella firma el contrato al inicio del taller 3.</div>
+      <div class="hint">Ver qué desbloquea →</div></div>
+    </button>
+  </div>
+
+  <div class="card yel" style="margin-top:16px;display:flex;gap:18px;align-items:center;flex-wrap:wrap">
+    <img src="img/contrato.jpg" alt="" style="width:110px;border-radius:10px">
+    <div style="flex:1;min-width:230px"><h3>Y al llegar a Socio: el contrato</h3><p class="small" style="margin:6px 0 0">Valeria firma con tu estudio al inicio del taller 3. En todos los niveles recibes el mismo acompañamiento y una consulta breve conmigo en cada reto.</p></div>
+  </div>
+
+  <h3 style="margin-top:42px">Qué responde Valeria cuando le presentan</h3>
+  <p style="margin-top:8px">En cada taller tu estudio resuelve dos <b>retos</b> sobre su caso y se los presenta, como se le presenta a un cliente real. Son cuatro en total. Ella responde como respondería cualquier clienta: con una reacción, una razón y un siguiente paso.</p>
+  <div class="grid3" style="margin-top:16px">
+    <div class="card seal"><img src="img/sl1.png" alt=""><div><b>Me convence</b><em>“Vamos con esto.”</em><span>El estudio suma una propuesta aprobada.</span></div></div>
+    <div class="card seal"><img src="img/sl2.png" alt=""><div><b>Me gusta, pero…</b><em>“Ajusten esta parte.”</em><span>Incorporas el ajuste y sigue contando.</span></div></div>
+    <div class="card seal"><img src="img/sl3.png" alt=""><div><b>Todavía no</b><em>“Les digo por qué.”</em><span>Vuelven a presentarlo con lo que faltó.</span></div></div>
+  </div>
+  <div class="fbline">Recibirás retroalimentación constante: siempre vas a saber por qué y qué ajustar.</div>
+
+  <div class="card yel gold" style="margin-top:22px">
+    <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="19" r="13" fill="#17120b"/><path d="M24 10.5 l2.9 5.9 l6.5 .9 l-4.7 4.6 l1.1 6.5 l-5.8 -3 l-5.8 3 l1.1 -6.5 l-4.7 -4.6 l6.5 -.9z" fill="#ffd21f"/><path d="M16 31 l-3 13 l11 -5 l11 5 l-3 -13" fill="none" stroke="#17120b" stroke-width="2.6" stroke-linejoin="round"/></svg>
+    <div><h3>Sello dorado</h3><p class="small" style="margin:6px 0 0">Reconoce una decisión muy bien defendida o una mejora grande después de la retroalimentación. No cambia tu nota: queda en la ruta del estudio, a la vista de todos.</p></div>
+  </div>
+</section>
+
+<section id="evaluacion">
+  <div class="htitle"><span class="num">5</span><h2>Tu evaluación final</h2></div>
+  <p class="lead" style="margin:-8px 0 20px">Es individual y califica tu proyecto integrador.</p>
+  <div class="score">
+    <div class="b yel"><div class="n">100</div><div class="small" style="margin-top:6px"><b>puntos</b> en total: proyecto integrado con sustentación</div></div>
+    <div class="b card"><div class="n" style="color:var(--pur)">64</div><div class="small" style="margin-top:6px">mínimo para aprobar, <b>de 100</b></div></div>
+  </div>
+  <p style="margin-top:18px">Se califica una sola cosa: tu proyecto integrador. Lo sustentas el sábado 21 y entregas la versión ajustada hasta el martes 24.</p>
+  <p>Las entregas parciales, las autoevaluaciones y los retos en equipo <b>no llevan nota</b>. Están ahí para que llegues preparado y mejores con retroalimentación a tiempo.</p>
+  <a class="next" href="#aula">Todo lo que necesitas para llegar ahí está en el aula.</a>
+</section>
+
+<section id="aula">
+  <div class="htitle"><span class="num">6</span><h2>Tu aula</h2></div>
+  <div class="tw" style="margin-top:4px"><table>
+    <tr><th>Cuándo</th><th>Qué encuentras</th></tr>
+    <tr><td>Desde el primer día</td><td>Video de Valeria, esta guía, el sílabo, el caso de Kunturi, el caso alternativo y el enlace de los talleres.</td></tr>
+    <tr><td>Cada semana</td><td>Lectura, plantillas y autoevaluación del módulo en curso.</td></tr>
+    <tr><td>Después de cada taller</td><td>Grabación, resumen y la ruta del estudio actualizada: dónde va cada equipo y qué propuestas lleva aprobadas.</td></tr>
+  </table></div>
+  <p style="margin-top:16px">En el <b>foro de presentación</b> se conocen entre ustedes. En el <b>foro de dudas</b> puedes aclarar lo que necesites: te responderemos tus compañeros o yo. Cada entrega se sube en su módulo del aula, donde encontrarás el formato y la hora límite.</p>
+  <p>Necesitas computadora con cámara y micrófono, conexión estable y una herramienta para prototipar: PowerPoint, Canva, Genially o la que prefieras.</p>
+  <a class="next" href="#mision">Solo queda una cosa antes del sábado.</a>
+</section>
+
+<section id="mision">
+  <div class="htitle"><span class="num">7</span><h2>Tu primera misión</h2></div>
+  <p class="lead" style="margin:-8px 0 20px">Antes del sábado 7. Puedes marcar aquí mismo lo que vayas haciendo.</p>
+  <div class="mission">
+    <div class="prog"><div class="track"><i id="pi"></i></div><div class="cnt" id="pc">0 de 4</div></div>
+    <label class="task"><input type="checkbox" id="t1"><span>Mira el video de Valeria. Dura dos minutos y ahí empieza todo.</span></label>
+    <label class="task"><input type="checkbox" id="t2"><span>Lee esta guía completa.</span></label>
+    <label class="task"><input type="checkbox" id="t3"><span>Preséntate en el foro: tu nombre, qué haces y un juego o actividad que te haya enganchado. Cuenta por qué.</span></label>
+    <label class="task"><input type="checkbox" id="t4"><span>Elige el caso de tu proyecto: un curso o programa que quieras rediseñar. Si no tienes uno, el aula tiene un caso alternativo listo.</span></label>
+    <div class="done" id="done" hidden>Valeria ya tiene tu nombre. Nos vemos el sábado 7 a las 9:00.</div>
+  </div>
+
+  <div class="outro">
+    <div class="lbl">Al terminar estas tres semanas</div>
+    <p>No vas a salir sabiendo solo más de gamificación. Vas a mirar cualquier curso, taller o inducción y ver <span>lo que antes no veías</span>: qué decisión lo sostiene, qué le falta y cómo lo harías tú.</p>
+    <p>Y vas a poder <span>sustentar tus propuestas con criterio</span>, frente a tu equipo, tu jefatura o tu cliente.</p>
+    <div class="sign">Eso se queda contigo. Nos vemos el sábado.</div>
+  </div>
+</section>
+
+</div></main>
+
+<footer><div class="wrap"><span>Magio Academy · Gamificación del Aprendizaje</span><span>Facilitadora: Doris Delgado</span></div></footer>
+
+<script>
+(function(){
+  var bar=document.querySelector('#bar i');
+  var secs=[].slice.call(document.querySelectorAll('section'));
+  var links=[].slice.call(document.querySelectorAll('nav a'));
+  function onScroll(){
+    var m=document.querySelector('main');
+    var start=m?m.offsetTop:0;
+    var h=document.documentElement.scrollHeight-window.innerHeight-start;
+    var p=h>0?(window.scrollY-start)/h*100:0;
+    bar.style.width=Math.max(0,Math.min(100,p))+'%';
+    var cur=secs[0];
+    secs.forEach(function(s){ if(s.getBoundingClientRect().top<=150) cur=s; });
+    links.forEach(function(a){ a.classList.toggle('on', a.getAttribute('href')==='#'+cur.id); });
+  }
+  window.addEventListener('scroll',onScroll,{passive:true}); window.addEventListener('resize',onScroll); onScroll();
+
+  var fb=document.getElementById('fb'), fbt=document.getElementById('fbt');
+  [].slice.call(document.querySelectorAll('.opt')).forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('.opt').forEach(function(o){o.setAttribute('aria-pressed','false')});
+      b.setAttribute('aria-pressed','true');
+      fbt.textContent=b.dataset.fb; fb.hidden=false;
+    });
+  });
+
+  [].slice.call(document.querySelectorAll('.lvl')).forEach(function(c){
+    c.addEventListener('click',function(){
+      var op=c.getAttribute('aria-expanded')==='true';
+      c.setAttribute('aria-expanded',String(!op));
+      c.querySelector('.more').hidden=op;
+      c.querySelector('.hint').textContent=op?'Ver qué desbloquea →':'Ocultar';
+    });
+  });
+
+  [].slice.call(document.querySelectorAll('.flip')).forEach(function(c){
+    c.addEventListener('click',function(){ c.setAttribute('aria-pressed', c.getAttribute('aria-pressed')==='true'?'false':'true'); });
+  });
+
+  var ids=['t1','t2','t3','t4'], pi=document.getElementById('pi'), pc=document.getElementById('pc'), done=document.getElementById('done');
+  function save(){ try{ localStorage.setItem('cplg-mision', JSON.stringify(ids.map(function(i){return document.getElementById(i).checked}))); }catch(e){} }
+  function paint(){
+    var n=ids.filter(function(i){return document.getElementById(i).checked}).length;
+    pi.style.width=(n/ids.length*100)+'%'; pc.textContent=n+' de '+ids.length; done.hidden=n<ids.length;
+  }
+  try{ var saved=JSON.parse(localStorage.getItem('cplg-mision')||'[]');
+    if(Array.isArray(saved)) ids.forEach(function(i,k){ if(saved[k]) document.getElementById(i).checked=true; });
+  }catch(e){}
+  ids.forEach(function(i){ document.getElementById(i).addEventListener('change',function(){ paint(); save(); }); });
+  paint();
+
+})();
+</script>
+
+</body>
+</html>
