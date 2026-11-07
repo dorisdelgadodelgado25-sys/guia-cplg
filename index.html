@@ -125,6 +125,11 @@ h1 em{font-style:normal;color:var(--yel)}
 .score .b{border-radius:16px;padding:20px 22px;text-align:center}
 .score .n{font-family:var(--dsp);font-size:54px;font-weight:800;line-height:1;letter-spacing:-.03em}
 
+.medals{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.medals .flip .in{min-height:150px}
+.flip .medal{flex:none;width:58px;height:58px;border-radius:50%;background:var(--panel);display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 0 0 4px #17120b inset,0 0 0 7px var(--yel)}
+.flip .bk{font-size:16px;line-height:1.45}
+.flow .fs{display:block;font-size:14px;font-weight:400;margin-top:3px;opacity:.9}
 /* niveles */
 .lvls{display:grid;gap:12px}
 .arrow{display:none}
@@ -242,7 +247,7 @@ section{scroll-margin-top:76px}
     <a href="#valeria">Lucía</a>
     <a href="#ayuda">Cómo la ayudamos</a>
     <a href="#ruta">Tu ruta</a>
-    <a href="#niveles">Niveles</a>
+    <a href="#niveles">Medallas</a>
     <a href="#evaluacion">Evaluación</a>
     <a href="#aula">Tu aula</a>
     <a href="#mision">Tu misión</a>
@@ -271,8 +276,8 @@ section{scroll-margin-top:76px}
   <div class="quote">
     <img src="img/valeria.jpg" alt="Lucía, la clienta del caso">
     <div class="t">
-      <q>“Hola. Soy <b>Lucía</b>, gerente de Talento en Distribuidora Kunturi. Somos mil doscientas personas y más de la mitad trabaja en tiendas y almacenes.<br><br>Cada año todos deben completar <b>Integridad Kunturi</b>, nuestro curso de ética y cumplimiento. Este año solo el <b>41 %</b> lo terminó a tiempo. El resto lo hizo a las apuradas la última semana, con el jefe encima. Y ahora auditoría me pide evidencia de que la gente entiende, no solo de que hizo clic.<br><br>Yo ya sé lo que quiero: <b>puntos, un ranking por área y un premio</b>. El presupuesto es bajo y en tienda solo hay celular. ¿Me ayudan?”</q>
-      <div class="who">Lucía, la empresa y sus datos son parte de un caso ficticio creado para este curso. El sábado 7 la conocerás en video y empezarás a trabajar con su encargo.</div>
+      <q>“Hola, equipo: soy <b>Lucía</b>, gerente de Talento de Supermercados Kunturi. Somos 1,200 personas.<br><br>Todos deben llevar <b>Integridad Kunturi</b>, nuestro curso anual de ética y cumplimiento. Lo hacen en el celular, y el contenido es extenso y denso. Muchos lo abandonan a la mitad: solo el <b>41 %</b> lo terminó a tiempo. Y auditoría ahora me pide evidencia de que la gente entiende, no solo de que hizo clic.<br><br>Me pidieron gamificarlo. Yo creo que con <b>puntos, un ranking por área de quién termina primero y un premio</b> lo solucionamos, ¿no? ¿Me ayudan?”</q>
+      <div class="who">Lucía, la empresa y sus datos son parte de un caso ficticio creado para este curso. El sábado 7 empiezas a trabajar con su encargo.</div>
     </div>
   </div>
 
@@ -293,7 +298,7 @@ section{scroll-margin-top:76px}
   <div class="htitle"><span class="num">2</span><h2>Cómo vamos a ayudar a Lucía</h2></div>
   <p>Trabajas en dos planos a la vez, y el criterio que usas es el mismo en los dos.</p>
   <div class="grid2" style="margin-top:16px">
-    <div class="card yel"><span class="chip">En equipo · en vivo</span><h3>El estudio</h3><p class="small" style="margin:8px 0 0">Fundas un estudio de diseño con tus compañeros y juntos atienden el encargo de Lucía. Le presentan propuestas, ella responde y ustedes ajustan. <b>No se califica.</b></p></div>
+    <div class="card yel"><span class="chip">En equipo · en vivo</span><h3>El estudio</h3><p class="small" style="margin:8px 0 0">Fundas un estudio de diseño con tus compañeros y juntos atienden el encargo de Lucía. Cada módulo termina con un reto para ella, y presentan su propuesta como a un cliente real. <b>No se califica.</b></p></div>
     <div class="card"><span class="chip">Por tu cuenta</span><h3>Tu proyecto</h3><p class="small" style="margin:8px 0 0">Aplicas lo aprendido a un curso o programa tuyo, o al caso alternativo del aula. Lo entregas y lo sustentas. <b>Es lo único que se califica.</b></p></div>
   </div>
   <div class="card" style="margin-top:14px;display:flex;gap:22px;align-items:center;flex-wrap:wrap">
@@ -345,59 +350,55 @@ section{scroll-margin-top:76px}
     <div class="f f3"><b>3 · Tú decides</b></div>
   </div>
   <p style="margin-top:14px">Si usas IA, hazlo después de tu propio intento. En la entrega, indica para qué la usaste y qué ajustaste de su propuesta.</p>
-  <p class="small">Hora de Lima. Cada sesión empieza con 15 minutos de tolerancia y tiene una pausa de 15. El enlace de los talleres está en el aula, en la sección de bienvenida. Un <b>prototipo</b> es la primera versión de tu propuesta, lo bastante armada para que otra persona la recorra.</p>
+  <p class="small">Hora de Lima. Cada sesión empieza con 15 minutos de tolerancia y tiene una pausa de 15. Un <b>prototipo</b> es la primera versión de tu propuesta, lo bastante armada para que otra persona la recorra.</p>
 
-  <a class="next" href="#niveles">Mientras tú avanzas, tu estudio también sube de nivel.</a>
+  <a class="next" href="#niveles">Mientras tú avanzas, tu estudio gana medallas.</a>
 </section>
 
 <section id="niveles">
   <div class="htitle"><span class="num">4</span><h2>Haz avanzar a tu estudio</h2></div>
-  <p class="lead" style="margin:-8px 0 22px">Cada propuesta que le presentan a Lucía los acerca a ser su socio. Sin puntos individuales, sin ranking entre equipos y sin penalizaciones.</p>
+  <p class="lead" style="margin:-8px 0 22px">Cada módulo termina con un reto para Lucía. Al completarlo, tu estudio gana la medalla del módulo. Y algunos retos esconden un premio sorpresa: una herramienta nueva para tu proyecto. Sin puntos, sin ranking y sin penalizaciones.</p>
 
-  <div class="lvls">
-    <button class="lvl" type="button" aria-expanded="false">
-      <div class="pic"><svg viewBox="0 0 120 74" aria-hidden="true"><rect x="4" y="50" width="36" height="24" rx="3" fill="#ffd21f"/><rect x="42" y="36" width="36" height="38" rx="3" fill="#2a2660"/><rect x="80" y="22" width="36" height="52" rx="3" fill="#2a2660"/><circle cx="22" cy="40" r="6" fill="#fff"/></svg></div>
-      <div class="b"><div class="t"><span class="n">1</span><h3>A prueba</h3></div><span class="chip">Al formar tu estudio</span>
-      <div class="d">Reciben el encargo de Lucía y empiezan a trabajar.</div>
-      <div class="more" hidden>Desbloqueas la <b>consultoría exprés</b>: una consulta breve conmigo en cada reto. La tienen todos los estudios, en todos los niveles.</div>
-      <div class="hint">Ver qué desbloquea →</div></div>
+  <div class="medals">
+    <button class="flip" type="button" aria-pressed="false" aria-label="Medalla Jugador: ver el reto">
+      <div class="in">
+        <div class="f"><span class="medal">🔍</span><div><div class="when" style="color:#5c4a0d;margin:0">Sábado 7</div><h3 style="color:#17120b">Medalla Jugador</h3><div class="tap">Toca para ver el reto</div></div></div>
+        <div class="bk"><b>El reto</b>Analizar a su jugador y su contexto.<span style="display:block;margin-top:10px;color:var(--yel);font-family:var(--dsp);font-weight:700">Al completarlo: la medalla. ¿Y un 🎁 premio sorpresa? Lo sabrán al terminar</span></div>
+      </div>
     </button>
-    <div class="arrow" aria-hidden="true">→</div>
-    <button class="lvl" type="button" aria-expanded="false">
-      <div class="pic"><svg viewBox="0 0 120 74" aria-hidden="true"><rect x="4" y="50" width="36" height="24" rx="3" fill="#2a2660"/><rect x="42" y="36" width="36" height="38" rx="3" fill="#ffd21f"/><rect x="80" y="22" width="36" height="52" rx="3" fill="#2a2660"/><circle cx="60" cy="26" r="6" fill="#fff"/></svg></div>
-      <div class="b"><div class="t"><span class="n">2</span><h3>De confianza</h3></div><span class="chip">Con dos propuestas aprobadas</span>
-      <div class="d">Lucía ya confía en el criterio del estudio.</div>
-      <div class="more" hidden>Eligen el <b>orden en que presentan</b> y pueden proponer un ajuste a una carta de restricción.</div>
-      <div class="hint">Ver qué desbloquea →</div></div>
+    <button class="flip" type="button" aria-pressed="false" aria-label="Medalla Historia: ver el reto">
+      <div class="in">
+        <div class="f"><span class="medal">📜</span><div><div class="when" style="color:#5c4a0d;margin:0">Sábado 7</div><h3 style="color:#17120b">Medalla Historia</h3><div class="tap">Toca para ver el reto</div></div></div>
+        <div class="bk"><b>El reto</b>Crear la historia de la experiencia.<span style="display:block;margin-top:10px;color:var(--yel);font-family:var(--dsp);font-weight:700">Al completarlo: la medalla. ¿Y un 🎁 premio sorpresa? Lo sabrán al terminar</span></div>
+      </div>
     </button>
-    <div class="arrow" aria-hidden="true">→</div>
-    <button class="lvl" type="button" aria-expanded="false">
-      <div class="pic"><svg viewBox="0 0 120 74" aria-hidden="true"><rect x="4" y="50" width="36" height="24" rx="3" fill="#2a2660"/><rect x="42" y="36" width="36" height="38" rx="3" fill="#2a2660"/><rect x="80" y="22" width="36" height="52" rx="3" fill="#ffd21f"/><rect x="96" y="2" width="2.6" height="20" fill="#fff"/><path d="M98.6 2 h14 l-3.4 5 l3.4 5 h-14z" fill="#ffd21f"/><circle cx="92" cy="12" r="6" fill="#fff"/></svg></div>
-      <div class="b"><div class="t"><span class="n">3</span><h3>Socio</h3></div><span class="chip">Con cuatro propuestas aprobadas</span>
-      <div class="d">El estudio deja de ser proveedor y pasa a ser socio.</div>
-      <div class="more" hidden><b>Negocian directamente con Lucía</b> y ella firma el contrato al inicio del taller 3.</div>
-      <div class="hint">Ver qué desbloquea →</div></div>
+    <button class="flip" type="button" aria-pressed="false" aria-label="Medalla Sistema: ver el reto">
+      <div class="in">
+        <div class="f"><span class="medal">🎲</span><div><div class="when" style="color:#5c4a0d;margin:0">Sábado 14</div><h3 style="color:#17120b">Medalla Sistema</h3><div class="tap">Toca para ver el reto</div></div></div>
+        <div class="bk"><b>El reto</b>Diseñar el sistema de juego y su progresión.<span style="display:block;margin-top:10px;color:var(--yel);font-family:var(--dsp);font-weight:700">Al completarlo: la medalla. ¿Y un 🎁 premio sorpresa? Lo sabrán al terminar</span></div>
+      </div>
+    </button>
+    <button class="flip" type="button" aria-pressed="false" aria-label="Medalla Prototipo: ver el reto">
+      <div class="in">
+        <div class="f"><span class="medal">🚀</span><div><div class="when" style="color:#5c4a0d;margin:0">Sábado 14</div><h3 style="color:#17120b">Medalla Prototipo</h3><div class="tap">Toca para ver el reto</div></div></div>
+        <div class="bk"><b>El reto</b>Darle forma al prototipo.<span style="display:block;margin-top:10px;color:var(--yel);font-family:var(--dsp);font-weight:700">Al completarlo: la medalla. ¿Y un 🎁 premio sorpresa? Lo sabrán al terminar</span></div>
+      </div>
     </button>
   </div>
 
-  <div class="card yel" style="margin-top:16px;display:flex;gap:18px;align-items:center;flex-wrap:wrap">
+  <div class="card" style="margin-top:16px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;background:var(--ink);border-color:transparent">
     <img src="img/contrato.jpg" alt="" style="width:110px;border-radius:10px">
-    <div style="flex:1;min-width:230px"><h3>Y al llegar a Socio: el contrato</h3><p class="small" style="margin:6px 0 0">Lucía firma con tu estudio al inicio del taller 3. En todos los niveles recibes el mismo acompañamiento y una consulta breve conmigo en cada reto.</p></div>
+    <div style="flex:1;min-width:230px"><h3 style="color:var(--yel)">Con las cuatro medallas: Lucía firma</h3><p class="small" style="margin:6px 0 0;color:var(--on-dark)">Lucía firma con tu estudio al inicio del sábado 21. No es una carrera: los dos estudios pueden lograrlo.</p></div>
   </div>
 
-  <h3 style="margin-top:42px">Qué responde Lucía cuando le presentan</h3>
-  <p style="margin-top:8px">En cada taller tu estudio resuelve dos <b>retos</b> sobre su caso y se los presenta, como se le presenta a un cliente real. Son cuatro en total. Ella responde como respondería cualquier clienta: con una reacción, una razón y un siguiente paso.</p>
-  <div class="grid3" style="margin-top:16px">
-    <div class="card seal"><img src="img/sl1.png" alt=""><div><b>Me convence</b><em>“Vamos con esto.”</em><span>El estudio suma una propuesta aprobada.</span></div></div>
-    <div class="card seal"><img src="img/sl2.png" alt=""><div><b>Me gusta, pero…</b><em>“Ajusten esta parte.”</em><span>Incorporas el ajuste y sigue contando.</span></div></div>
-    <div class="card seal"><img src="img/sl3.png" alt=""><div><b>Todavía no</b><em>“Les digo por qué.”</em><span>Vuelven a presentarlo con lo que faltó.</span></div></div>
+  <h3 style="margin-top:42px">Qué pasa cuando le presentan a Lucía</h3>
+  <p style="margin-top:8px">Al final de cada módulo, tu estudio le presenta su reto como se le presenta a un cliente real.</p>
+  <div class="flow" style="margin-top:12px">
+    <div class="f f1"><b>1 · Presentan</b><span class="fs">Su propuesta, en tres minutos</span></div>
+    <div class="f f2"><b>2 · Preguntan</b><span class="fs">El otro estudio hace una pregunta</span></div>
+    <div class="f f3"><b>3 · Mejoran</b><span class="fs">Una fortaleza y un ajuste para tu proyecto</span></div>
   </div>
   <div class="fbline">Recibirás retroalimentación constante: siempre vas a saber por qué y qué ajustar.</div>
-
-  <div class="card yel gold" style="margin-top:22px">
-    <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="19" r="13" fill="#17120b"/><path d="M24 10.5 l2.9 5.9 l6.5 .9 l-4.7 4.6 l1.1 6.5 l-5.8 -3 l-5.8 3 l1.1 -6.5 l-4.7 -4.6 l6.5 -.9z" fill="#ffd21f"/><path d="M16 31 l-3 13 l11 -5 l11 5 l-3 -13" fill="none" stroke="#17120b" stroke-width="2.6" stroke-linejoin="round"/></svg>
-    <div><h3>Sello dorado</h3><p class="small" style="margin:6px 0 0">Reconoce una decisión muy bien defendida o una mejora grande después de la retroalimentación. No cambia tu nota: queda en la ruta del estudio, a la vista de todos.</p></div>
-  </div>
 </section>
 
 <section id="evaluacion">
@@ -416,9 +417,9 @@ section{scroll-margin-top:76px}
   <div class="htitle"><span class="num">6</span><h2>Tu aula</h2></div>
   <div class="tw" style="margin-top:4px"><table>
     <tr><th>Cuándo</th><th>Qué encuentras</th></tr>
-    <tr><td>Desde el primer día</td><td>Video de Lucía, esta guía, el sílabo, el caso de Kunturi, el caso alternativo y el enlace de los talleres.</td></tr>
+    <tr><td>Desde el primer día</td><td>Esta guía, el sílabo y el caso alternativo.</td></tr>
     <tr><td>Cada semana</td><td>Lectura, plantillas y autoevaluación del módulo en curso.</td></tr>
-    <tr><td>Después de cada taller</td><td>Grabación, resumen y la ruta del estudio actualizada: dónde va cada equipo y qué propuestas lleva aprobadas.</td></tr>
+    <tr><td>Después de cada taller</td><td>Grabación, materiales de la sesión y los premios que desbloquearon los estudios.</td></tr>
   </table></div>
   <p style="margin-top:16px">En el <b>foro de presentación</b> se conocen entre ustedes. En el <b>foro de dudas</b> puedes aclarar lo que necesites: te responderemos tus compañeros o yo. Cada entrega se sube en su módulo del aula, donde encontrarás el formato y la hora límite.</p>
   <p>Necesitas computadora con cámara y micrófono, conexión estable y una herramienta para prototipar: PowerPoint, Canva, Genially o la que prefieras.</p>
@@ -430,7 +431,7 @@ section{scroll-margin-top:76px}
   <p class="lead" style="margin:-8px 0 20px">Antes del sábado 7. Puedes marcar aquí mismo lo que vayas haciendo.</p>
   <div class="mission">
     <div class="prog"><div class="track"><i id="pi"></i></div><div class="cnt" id="pc">0 de 4</div></div>
-    <label class="task"><input type="checkbox" id="t1"><span>Mira el video de Lucía. Dura dos minutos y ahí empieza todo.</span></label>
+    <label class="task"><input type="checkbox" id="t1"><span>Lee el mensaje de Lucía, aquí arriba. Ahí empieza todo.</span></label>
     <label class="task"><input type="checkbox" id="t2"><span>Lee esta guía completa.</span></label>
     <label class="task"><input type="checkbox" id="t3"><span>Preséntate en el foro: tu nombre, qué haces y un juego o actividad que te haya enganchado. Cuenta por qué.</span></label>
     <label class="task"><input type="checkbox" id="t4"><span>Elige el caso de tu proyecto: un curso o programa que quieras rediseñar. Si no tienes uno, el aula tiene un caso alternativo listo.</span></label>
